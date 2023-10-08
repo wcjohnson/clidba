@@ -1,0 +1,29 @@
+{
+  "driver": "mysql",
+  "config": {
+    "host": "localhost",
+    "port": "3306",
+    "user": {
+      "type": "env",
+      "env": "MYSQL_ROOT_USER"
+    },
+    "password": {
+      "type": "env",
+      "env": "MYSQL_ROOT_PASSWORD"
+    }
+  },
+  "instructions": [
+    {
+      "operation": "createUser",
+      "name": {
+        "type": "env",
+        "env": "MYSQL_APP_USER"
+      },
+      "password": {
+        "type": "env",
+        "env": "MYSQL_APP_PASSWORD"
+      },
+      "grantAll": true
+    }
+  ]
+}

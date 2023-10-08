@@ -1,0 +1,11 @@
+# OS artifacts
+.DS_Store
+
+# Package caches
+/node_modules
+
+# Build caches
+/dist
+/lib
+/coverage
+/image
