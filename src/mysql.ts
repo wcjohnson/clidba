@@ -57,11 +57,11 @@ export const mysqlConnector: Connector<MysqlConnectionArgs, Connection> = {
       const password = resolveValue(instruction.password, false, "password")
   
       // Check for preexisting user
-      const [rows] = await connection.query(`SELECT COUNT(*) FROM mysql.user WHERE user = '${name}'`)
+      const rows  = await connection.query(`SELECT COUNT(*) FROM mysql.user WHERE user = '${name}'`)
       const count = rows?.[0]?.['COUNT(*)']
       if( count && count > 0) {
         console.log("createMysqlUser: user", name, "already exists, skipping")
-        return false
+        return true
       }
 
       // Create

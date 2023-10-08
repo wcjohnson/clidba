@@ -68,7 +68,7 @@ export const elasticsearchConnector: Connector<ElasticsearchConnectionArgs, Clie
         // desired case here.
         await client.security.getRole({name: name})
         console.log("createElasticsearchRole: role", name, "already exists, skipping")
-        return false
+        return true
       } catch {
         // do nothing
       }
@@ -94,7 +94,7 @@ export const elasticsearchConnector: Connector<ElasticsearchConnectionArgs, Clie
         // desired case here.
         await client.security.getUser({username: name})
         console.log("createElasticsearchUser: user", name, "already exists, skipping")
-        return false
+        return true
       } catch {
         // do nothing
       }
