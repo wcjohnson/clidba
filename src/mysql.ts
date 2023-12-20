@@ -58,8 +58,9 @@ export const mysqlConnector: Connector<MysqlConnectionArgs, Connection> = {
   
       // Check for preexisting user
       const rows  = await connection.query(`SELECT COUNT(*) FROM mysql.user WHERE user = '${name}'`)
+      console.log("Checking for pre-existing user. Got:", rows)
       const count = rows?.[0]?.['COUNT(*)']
-      if( count && count > 0) {
+      if( count && Number(count) > 0) {
         console.log("createMysqlUser: user", name, "already exists, skipping")
         return true
       }
